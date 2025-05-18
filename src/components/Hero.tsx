@@ -42,7 +42,7 @@ const Hero = () => {
               
               <div className="absolute top-4 left-1/2 transform -translate-x-1/2 -rotate-12 z-10 transition-transform hover:scale-105 duration-300">
                 <img 
-                  src="/placeholder.svg" 
+                  src="/newdrop-sneakers.jpg" 
                   alt="Custom Jordan Sneaker" 
                   className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] object-contain drop-shadow-2xl" 
                 />
@@ -51,7 +51,7 @@ const Hero = () => {
               
               <div className="absolute bottom-0 left-1/4 transform rotate-12 z-20 transition-transform hover:rotate-6 duration-300 hover:scale-105">
                 <img 
-                  src="/placeholder.svg" 
+                  src="/newdrop-sneakers2.jpg" 
                   alt="Custom Yeezy" 
                   className="w-[200px] h-[200px] md:w-[250px] md:h-[250px] object-contain drop-shadow-xl" 
                 />

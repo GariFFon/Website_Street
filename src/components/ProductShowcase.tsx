@@ -6,22 +6,22 @@ const ProductShowcase = () => {
   const categories = [
     {
       title: "Sneakers",
-      image: "/placeholder.svg",
+      image: "/productshowcase-sneakers.jpg",
       items: "450+ items"
     },
     {
       title: "Streetwear",
-      image: "/placeholder.svg",
+      image: "/productshowcase-streetwear.jpg",
       items: "280+ items"
     },
     {
       title: "Modkicks Originals",
-      image: "/placeholder.svg",
+      image: "/modkicks-original.jpg",
       items: "120+ items"
     },
     {
       title: "Collectibles",
-      image: "/placeholder.svg",
+      image: "/collectibles-sneakers.jpg",
       items: "85+ items"
     }
   ];
@@ -30,25 +30,25 @@ const ProductShowcase = () => {
     {
       name: "Jordan 1 Retro High",
       price: "$220",
-      image: "/placeholder.svg",
+      image: "/jordan-1-retro-high.jpg",
       isCustomizable: true
     },
     {
       name: "Essentials Hoodie",
       price: "$120",
-      image: "/placeholder.svg",
+      image: "/essential-hoodie.jpg",
       isCustomizable: true
     },
     {
       name: "Nike Dunk Low",
       price: "$180",
-      image: "/placeholder.svg",
+      image: "/nike-dunk-low.jpg",
       isCustomizable: true
     },
     {
       name: "Modkicks Original Tee",
       price: "$65",
-      image: "/placeholder.svg",
+      image: "/modkicks-original-tee.jpg",
       isCustomizable: true
     }
   ];

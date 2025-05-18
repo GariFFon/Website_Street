@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Button from './Button';
 
@@ -8,37 +7,37 @@ const Gallery = () => {
       title: "Custom Jordan 1 'Graffiti'",
       description: "Hand-painted urban art design",
       artist: "Mike Lowry",
-      image: "/placeholder.svg"
+      image: "/custom-jordan-1-graffiti.jpg"
     },
     {
       title: "Anime Denim Jacket",
       description: "One Piece inspired custom piece",
       artist: "Aria Chen",
-      image: "/placeholder.svg"
+      image: "/anime-denim-jacket.jpg"
     },
     {
       title: "Electric Dunks",
       description: "Lightning effect custom paint",
       artist: "Rashid Johnson",
-      image: "/placeholder.svg"
+      image: "/electric-dunks.jpg"
     },
     {
       title: "Vintage Wash Tee",
       description: "Distressed custom graphic tee",
       artist: "Taylor Kim",
-      image: "/placeholder.svg"
+      image: "/image1.jpg"
     },
     {
       title: "Galaxy Yeezy 350",
       description: "Cosmic custom colorway",
       artist: "Stella Nova",
-      image: "/placeholder.svg"
+      image: "/yeezy-350.jpg"
     },
     {
       title: "Varsity Jacket Rework",
       description: "Upcycled vintage jacket",
       artist: "Marcus Bell",
-      image: "/placeholder.svg"
+      image: "/varsity-jacket-rework.jpg"
     }
   ];
 
