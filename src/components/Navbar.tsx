@@ -82,7 +82,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <div className="flex items-center relative">
           <div className="absolute -left-10 top-1/2 -translate-y-1/2 w-8 h-auto">
-            <img src="/logo.svg" alt="Logo" className="w-full h-auto" />
+            <svg width="40" height="116" viewBox="0 0 137 398" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+              {/* Top zigzag shape */}
+              <path d="M134 2L9 214h58l66-210z" fill={isScrolled ? "black" : "white"}/>
+              {/* Bottom zigzag shape */}
+              <path d="M4 397l125-218h-62l-63 218z" fill={isScrolled ? "black" : "white"}/>
+            </svg>
           </div>
           <a href="/" className={cn("font-display text-3xl", 
             isScrolled ? "text-black" : "text-white"
