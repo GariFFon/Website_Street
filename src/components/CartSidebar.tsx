@@ -1,10 +1,30 @@
 import React, { useState } from 'react';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter } from "@/components/ui/sheet";
+import { Sheet, SheetHeader, SheetTitle, SheetFooter, SheetPortal, SheetOverlay } from "@/components/ui/sheet";
+import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Minus, Plus, X, ShoppingBag, CreditCard, Truck, ArrowRight } from 'lucide-react';
 import Button from '@/components/Button';
 import { useCart, CartItem } from '@/lib/cart-context';
 import { cn } from '@/lib/utils';
+
+// Custom SheetContent without automatic close button
+const SheetContent = React.forwardRef<
+  React.ElementRef<typeof SheetPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>
+>(({ className, children, ...props }, ref) => (
+  <SheetPortal>
+    <SheetOverlay />
+    <SheetPrimitive.Content
+      ref={ref}
+      className={cn("fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500 inset-y-0 right-0 h-full w-3/4 border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-md", 
+      className)}
+      {...props}
+    >
+      {children}
+    </SheetPrimitive.Content>
+  </SheetPortal>
+));
+SheetContent.displayName = SheetPrimitive.Content.displayName;
 
 const CartSidebar = () => {
   const { 
@@ -50,10 +70,16 @@ const CartSidebar = () => {
   return (
     <Sheet open={isCartOpen} onOpenChange={(isOpen) => {
       if (!isOpen) {
-        // Only allow closing if we're in cart view or confirmation
-        if (checkoutStep === 'cart' || checkoutStep === 'confirmation') {
+        // Handle the close button click based on current checkout step
+        if (checkoutStep === 'shipping') {
+          setCheckoutStep('cart');
+          return; // Prevent closing the sheet
+        } else if (checkoutStep === 'payment') {
+          setCheckoutStep('shipping');
+          return; // Prevent closing the sheet
+        } else if (checkoutStep === 'cart' || checkoutStep === 'confirmation') {
           closeCart();
-          // Reset to cart view when closing
+          // Reset to cart view when closing after confirmation
           if (checkoutStep === 'confirmation') {
             setTimeout(() => setCheckoutStep('cart'), 300);
           }
@@ -156,9 +182,18 @@ const CartSidebar = () => {
         {checkoutStep === 'shipping' && (
           <>
             <SheetHeader className="space-y-2 mb-6">
-              <SheetTitle className="flex items-center">
-                <Truck className="inline mr-2" size={20} />
-                Shipping Information
+              <SheetTitle className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <Truck className="inline mr-2" size={20} />
+                  Shipping Information
+                </div>
+                <button
+                  onClick={() => setCheckoutStep('cart')}
+                  className="text-gray-400 hover:text-gray-600"
+                  aria-label="Close shipping form"
+                >
+                  <X size={20} />
+                </button>
               </SheetTitle>
             </SheetHeader>
             
@@ -218,9 +253,18 @@ const CartSidebar = () => {
         {checkoutStep === 'payment' && (
           <>
             <SheetHeader className="space-y-2 mb-6">
-              <SheetTitle className="flex items-center">
-                <CreditCard className="inline mr-2" size={20} />
-                Payment Method
+              <SheetTitle className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <CreditCard className="inline mr-2" size={20} />
+                  Payment Method
+                </div>
+                <button
+                  onClick={() => setCheckoutStep('shipping')}
+                  className="text-gray-400 hover:text-gray-600"
+                  aria-label="Close payment form"
+                >
+                  <X size={20} />
+                </button>
               </SheetTitle>
             </SheetHeader>
             
