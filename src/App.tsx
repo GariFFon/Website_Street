@@ -9,6 +9,8 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Loader from "./components/Loader";
 import BackToTop from "./components/BackToTop";
+import CartSidebar from "./components/CartSidebar";
+import { CartProvider } from "./lib/cart-context";
 
 const queryClient = new QueryClient();
 
@@ -18,20 +20,23 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        {isLoading ? (
-          <Loader onComplete={() => setIsLoading(false)} />
-        ) : (
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-            <BackToTop />
-          </BrowserRouter>
-        )}
+        <CartProvider>
+          <Toaster />
+          <Sonner />
+          {isLoading ? (
+            <Loader onComplete={() => setIsLoading(false)} />
+          ) : (
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <BackToTop />
+              <CartSidebar />
+            </BrowserRouter>
+          )}
+        </CartProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

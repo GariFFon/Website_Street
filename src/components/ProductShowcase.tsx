@@ -1,8 +1,10 @@
 
 import React from 'react';
 import Button from './Button';
+import { useCart } from '@/lib/cart-context';
 
 const ProductShowcase = () => {
+  const { addToCart } = useCart();
   const categories = [
     {
       title: "Sneakers",
@@ -126,7 +128,18 @@ const ProductShowcase = () => {
                   </div>
                 )}
                 <div className="mt-3 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <Button variant="primary" className="w-full">
+                  <Button 
+                    variant="primary" 
+                    className="w-full"
+                    onClick={() => addToCart({
+                      id: `product-${index}`,
+                      name: product.name,
+                      price: typeof product.price === 'string' 
+                        ? parseFloat(product.price.replace('$', '')) 
+                        : 0,
+                      image: product.image
+                    })}
+                  >
                     Add to Cart
                   </Button>
                 </div>

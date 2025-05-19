@@ -2,10 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingCart, Search, User, Menu, X } from 'lucide-react';
 import { cn } from "@/lib/utils";
+import { useCart } from '@/lib/cart-context';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { openCart, getTotalItems } = useCart();
+  
+  const cartItemCount = getTotalItems();
 
   const navLinks = [
     { name: 'Shop', href: '#shop' },
@@ -102,12 +106,21 @@ const Navbar = () => {
           )}>
             <User size={20} />
           </button>
-          <button className={cn("transition-colors", 
-            isScrolled 
-              ? "text-black hover:text-gray-600" 
-              : "text-white hover:text-gray-300"
-          )}>
+          <button 
+            onClick={openCart}
+            className={cn(
+              "transition-colors relative", 
+              isScrolled 
+                ? "text-black hover:text-gray-600" 
+                : "text-white hover:text-gray-300"
+            )}
+          >
             <ShoppingCart size={20} />
+            {cartItemCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                {cartItemCount > 9 ? '9+' : cartItemCount}
+              </span>
+            )}
           </button>
           
           {/* Mobile menu button */}
