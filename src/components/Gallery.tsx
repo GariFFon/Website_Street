@@ -42,11 +42,11 @@ const Gallery = () => {
   ];
 
   return (
-    <section id="gallery" className="py-20 bg-modkicks-black text-white">
+    <section id="gallery" className="py-20 bg-black text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-display text-6xl md:text-7xl mb-4">
-            ONE OF <span className="text-modkicks-green">ONE</span> GALLERY
+            ONE OF <span className="text-white">ONE</span> GALLERY
           </h2>
           <p className="text-lg max-w-2xl mx-auto text-gray-400">
             Explore our showcase of past custom projects. Each piece is unique and one-of-a-kind,
@@ -58,7 +58,7 @@ const Gallery = () => {
           {galleryItems.map((item, index) => (
             <div 
               key={index} 
-              className="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-modkicks-green/20 transition-all duration-500"
+              className="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-white/20 transition-all duration-500"
             >
               <img 
                 src={item.image} 
@@ -67,17 +67,17 @@ const Gallery = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6">
                 <div className="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
-                  <h3 className="font-bold text-xl mb-2 text-white group-hover:text-modkicks-green transition-colors">
+                  <h3 className="font-bold text-xl mb-2 text-white group-hover:text-gray-300 transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-sm text-gray-300 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                     {item.description}
                   </p>
                   <div className="flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                    <span className="text-xs text-modkicks-green border border-modkicks-green/40 px-3 py-1 rounded-full">
+                    <span className="text-xs text-white border border-white/40 px-3 py-1 rounded-full">
                       By {item.artist}
                     </span>
-                    <button className="text-white hover:text-modkicks-green transition-colors">
+                    <button className="text-white hover:text-gray-300 transition-colors">
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14"></path>
                         <path d="M12 5l7 7-7 7"></path>
@@ -91,7 +91,7 @@ const Gallery = () => {
         </div>
 
         <div className="text-center">
-          <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-modkicks-black">
+          <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-black">
             View Full Gallery
           </Button>
         </div>

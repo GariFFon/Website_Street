@@ -55,13 +55,16 @@ const Navbar = () => {
     <header 
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+        isScrolled ? 'bg-white shadow-md py-2' : 'bg-black py-4'
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <div className="flex items-center">
+        <div className="flex items-center relative">
+          <div className="absolute -left-10 top-1/2 -translate-y-1/2 w-8 h-auto">
+            <img src="/logo.svg" alt="Logo" className="w-full h-auto" />
+          </div>
           <a href="/" className={cn("font-display text-3xl", 
-            isScrolled ? "text-modkicks-black" : "text-white"
+            isScrolled ? "text-black" : "text-white"
           )}>
             MODKICKS
           </a>
@@ -75,8 +78,8 @@ const Navbar = () => {
               href={link.href} 
               className={cn("font-medium transition-colors", 
                 isScrolled 
-                  ? "text-modkicks-black hover:text-modkicks-blue" 
-                  : "text-white hover:text-modkicks-green"
+                  ? "text-black hover:text-gray-600" 
+                  : "text-white hover:text-gray-300"
               )}
             >
               {link.name}
@@ -87,22 +90,22 @@ const Navbar = () => {
         <div className="flex items-center space-x-4">
           <button className={cn("transition-colors", 
             isScrolled 
-              ? "text-modkicks-black hover:text-modkicks-blue" 
-              : "text-white hover:text-modkicks-green"
+              ? "text-black hover:text-gray-600" 
+              : "text-white hover:text-gray-300"
           )}>
             <Search size={20} />
           </button>
           <button className={cn("transition-colors", 
             isScrolled 
-              ? "text-modkicks-black hover:text-modkicks-blue" 
-              : "text-white hover:text-modkicks-green"
+              ? "text-black hover:text-gray-600" 
+              : "text-white hover:text-gray-300"
           )}>
             <User size={20} />
           </button>
           <button className={cn("transition-colors", 
             isScrolled 
-              ? "text-modkicks-black hover:text-modkicks-blue" 
-              : "text-white hover:text-modkicks-green"
+              ? "text-black hover:text-gray-600" 
+              : "text-white hover:text-gray-300"
           )}>
             <ShoppingCart size={20} />
           </button>
@@ -110,7 +113,7 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <button 
             className={cn("md:hidden", 
-              isScrolled ? "text-modkicks-black" : "text-white"
+              isScrolled ? "text-black" : "text-white"
             )}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -127,7 +130,7 @@ const Navbar = () => {
               <a 
                 key={link.name} 
                 href={link.href} 
-                className="font-medium text-modkicks-black hover:text-modkicks-blue transition-colors py-2 border-b border-gray-100"
+                className="font-medium text-black hover:text-gray-600 transition-colors py-2 border-b border-gray-100"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.name}

@@ -54,11 +54,11 @@ const ProductShowcase = () => {
   ];
 
   return (
-    <section id="shop" className="py-20 bg-modkicks-white">
+    <section id="shop" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-16">
           <h2 className="font-display text-6xl mb-4 md:mb-0">
-            SHOP <span className="text-modkicks-blue">COLLECTION</span>
+            SHOP <span className="text-black">COLLECTION</span>
           </h2>
           <Button variant="outline">
             View All Products
@@ -92,21 +92,21 @@ const ProductShowcase = () => {
 
         <div className="text-center mb-10">
           <h2 className="font-display text-4xl md:text-5xl">
-            FEATURED <span className="text-modkicks-blue">PRODUCTS</span>
+            FEATURED <span className="text-black">PRODUCTS</span>
           </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {featuredProducts.map((product, index) => (
             <div key={index} className="product-card group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-              <div className="aspect-square bg-gradient-to-br from-modkicks-lightgray to-white rounded-t-xl overflow-hidden">
+              <div className="aspect-square bg-gradient-to-br from-gray-100 to-white rounded-t-xl overflow-hidden">
                 <img 
                   src={product.image} 
                   alt={product.name} 
                   className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <button className="bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-md hover:bg-modkicks-green transition-colors">
+                  <button className="bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-md hover:bg-gray-200 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"></path>
                     </svg>
@@ -115,12 +115,12 @@ const ProductShowcase = () => {
               </div>
               <div className="p-4">
                 <div className="flex justify-between items-start mb-1">
-                  <h3 className="font-medium text-lg group-hover:text-modkicks-blue transition-colors">{product.name}</h3>
-                  <span className="font-bold text-modkicks-black">{product.price}</span>
+                  <h3 className="font-medium text-lg group-hover:text-gray-600 transition-colors">{product.name}</h3>
+                  <span className="font-bold text-black">{product.price}</span>
                 </div>
                 {product.isCustomizable && (
                   <div className="mb-3">
-                    <span className="inline-block bg-modkicks-green/20 text-modkicks-black text-xs px-3 py-1 rounded-full font-medium border border-modkicks-green/30">
+                    <span className="inline-block bg-gray-200 text-black text-xs px-3 py-1 rounded-full font-medium border border-gray-300">
                       Customizable
                     </span>
                   </div>

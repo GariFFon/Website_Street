@@ -19,10 +19,10 @@ const Button = ({
   const baseStyles = "inline-flex items-center justify-center font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50";
   
   const variantStyles = {
-    primary: "bg-modkicks-black text-modkicks-white hover:bg-black/90 shadow-md hover:shadow-lg transition-shadow",
-    outline: "border-2 border-modkicks-black text-modkicks-black hover:bg-modkicks-black hover:text-modkicks-white hover:shadow-md transition-shadow",
-    ghost: "text-modkicks-black hover:bg-modkicks-lightgray hover:shadow-sm transition-shadow",
-    green: "bg-modkicks-green text-modkicks-black hover:bg-modkicks-green/90 shadow-md hover:shadow-lg shadow-modkicks-green/20 transition-shadow"
+    primary: "bg-black text-white hover:bg-black/90 shadow-md hover:shadow-lg transition-shadow",
+    outline: "border-2 border-black text-black hover:bg-black hover:text-white hover:shadow-md transition-shadow",
+    ghost: "text-black hover:bg-gray-100 hover:shadow-sm transition-shadow",
+    green: "bg-white text-black hover:bg-white/90 shadow-md hover:shadow-lg shadow-white/20 transition-shadow"
   };
   
   const sizeStyles = {

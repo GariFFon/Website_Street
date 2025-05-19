@@ -51,13 +51,13 @@ const BackToTop = () => {
           onClick={scrollToTop}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-modkicks-black text-white 
+          className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-black text-white 
                    shadow-lg transition-all duration-300 hover:scale-110
                    flex items-center justify-center"
           aria-label="Back to top"
           style={{
-            background: isHovered ? 'linear-gradient(145deg, #0066FF, #39FF14)' : '#121212',
-            boxShadow: isHovered ? '0 10px 25px rgba(57, 255, 20, 0.3)' : '0 4px 12px rgba(0, 0, 0, 0.15)'
+            background: isHovered ? 'linear-gradient(145deg, #333333, #000000)' : '#000000',
+            boxShadow: isHovered ? '0 10px 25px rgba(255, 255, 255, 0.2)' : '0 4px 12px rgba(0, 0, 0, 0.15)'
           }}
         >
           <ChevronUp 
@@ -65,7 +65,7 @@ const BackToTop = () => {
             className={`transform transition-transform duration-500 ${isHovered ? '-translate-y-1' : ''}`}
           />
           {!isHovered && (
-            <span className="absolute inline-flex h-full w-full rounded-full bg-modkicks-blue opacity-20 animate-ping"></span>
+            <span className="absolute inline-flex h-full w-full rounded-full bg-white opacity-20 animate-ping"></span>
           )}
         </button>
       )}
