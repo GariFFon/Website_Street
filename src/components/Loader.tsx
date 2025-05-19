@@ -62,12 +62,12 @@ const Loader = ({ onComplete }: { onComplete: () => void }) => {
   useEffect(() => {
     // Start the animation sequence
     const timeline = setTimeout(() => {
-      setAnimationStep(1); // Start text animation
+      setAnimationStep(1); // Start text animation immediately
 
       // Progress animation
       const progressInterval = setInterval(() => {
         setProgress((prev) => {
-          const newProgress = prev + 2;
+          const newProgress = prev + 3; // Changed from 2 to 3 for faster animation
           if (newProgress >= 100) {
             clearInterval(progressInterval);
 
@@ -77,19 +77,19 @@ const Loader = ({ onComplete }: { onComplete: () => void }) => {
 
               setTimeout(() => {
                 onComplete();
-              }, 600);
-            }, 500);
+              }, 400); // Decreased from 500ms to 400ms
+            }, 350); // Decreased from 450ms to 350ms
 
             return 100;
           }
           return newProgress;
         });
-      }, 50);
+      }, 40); // Decreased from 50ms to 40ms for faster animation
 
       return () => {
         clearInterval(progressInterval);
       };
-    }, 300);
+    }, 200); // Decreased from 250ms to 200ms
 
     return () => clearTimeout(timeline);
   }, [onComplete]);
@@ -181,7 +181,7 @@ const Loader = ({ onComplete }: { onComplete: () => void }) => {
                 }}
               />
 
-              {/* White filling logo with clip mask */}
+              {/* Red filling logo with clip mask */}
               <div
                 style={{
                   width: "120px",
@@ -198,15 +198,15 @@ const Loader = ({ onComplete }: { onComplete: () => void }) => {
                 {/* Removing redundant image */}
                 <img
                   src="/logo.svg"
-                  alt="Logo Filling White"
+                  alt="Logo Filling Red"
                   className={`${progress >= 100 ? "animate-pulse" : ""}`}
                   style={{
                     width: "120px",
                     height: "100px",
                     filter:
                       progress >= 95
-                        ? "drop-shadow(0 0 4px rgba(255, 255, 255, 0.7)) invert(1) brightness(2)"
-                        : "invert(1) brightness(2)",
+                        ? "drop-shadow(0 0 4px rgba(255, 0, 0, 0.7)) brightness(0.5) saturate(200%) invert(15%) sepia(100%) saturate(6000%) hue-rotate(350deg) brightness(120%)"
+                        : "brightness(0.5) saturate(200%) invert(15%) sepia(100%) saturate(6000%) hue-rotate(350deg) brightness(120%)",
                     transform: `scale(1.0)`,
                     position: "absolute",
                     top: 0,
