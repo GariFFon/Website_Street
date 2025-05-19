@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronUp } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { ChevronUp } from "lucide-react";
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,24 +15,24 @@ const BackToTop = () => {
           setIsVisible(false);
         }
       } catch (error) {
-        console.error('Error handling scroll event:', error);
+        console.error("Error handling scroll event:", error);
       }
     };
 
     try {
-      window.addEventListener('scroll', toggleVisibility);
+      window.addEventListener("scroll", toggleVisibility);
       // Initial check
       toggleVisibility();
-      
+
       return () => {
         try {
-          window.removeEventListener('scroll', toggleVisibility);
+          window.removeEventListener("scroll", toggleVisibility);
         } catch (error) {
-          console.error('Error removing scroll event listener:', error);
+          console.error("Error removing scroll event listener:", error);
         }
       };
     } catch (error) {
-      console.error('Error setting up scroll listener:', error);
+      console.error("Error setting up scroll listener:", error);
     }
   }, []);
 
@@ -40,14 +40,14 @@ const BackToTop = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
   return (
     <>
       {isVisible && (
-        <button 
+        <button
           onClick={scrollToTop}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -56,16 +56,22 @@ const BackToTop = () => {
                    flex items-center justify-center"
           aria-label="Back to top"
           style={{
-            background: isHovered ? 'linear-gradient(145deg, #0066FF, #39FF14)' : '#121212',
-            boxShadow: isHovered ? '0 10px 25px rgba(57, 255, 20, 0.3)' : '0 4px 12px rgba(0, 0, 0, 0.15)'
+            background: isHovered
+              ? "linear-gradient(145deg, #FF0000, #C70000)"
+              : "#121212",
+            boxShadow: isHovered
+              ? "0 10px 25px rgba(255, 0, 0, 0.3)"
+              : "0 4px 12px rgba(0, 0, 0, 0.15)",
           }}
         >
-          <ChevronUp 
-            size={24} 
-            className={`transform transition-transform duration-500 ${isHovered ? '-translate-y-1' : ''}`}
+          <ChevronUp
+            size={24}
+            className={`transform transition-transform duration-500 ${
+              isHovered ? "-translate-y-1" : ""
+            }`}
           />
           {!isHovered && (
-            <span className="absolute inline-flex h-full w-full rounded-full bg-modkicks-blue opacity-20 animate-ping"></span>
+            <span className="absolute inline-flex h-full w-full rounded-full bg-modkicks-red opacity-20 animate-ping"></span>
           )}
         </button>
       )}
