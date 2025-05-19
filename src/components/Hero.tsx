@@ -4,15 +4,16 @@ import Button from './Button';
 
 const Hero = () => {
   return (
-    <section className="pt-24 pb-12 md:pb-20 lg:pt-32 lg:pb-32 relative overflow-hidden bg-black text-white">
+    <section className="h-screen flex flex-col justify-center relative overflow-hidden bg-black text-white">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-white rounded-full opacity-10 blur-[100px] animate-pulse" />
-        <div className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-white rounded-full opacity-10 blur-[100px] animate-pulse" style={{ animationDelay: '2s', animationDuration: '8s' }} />
-        <div className="absolute top-[30%] right-[20%] w-[30%] h-[30%] bg-gray-500 rounded-full opacity-10 blur-[80px] animate-pulse" style={{ animationDelay: '1s', animationDuration: '7s' }} />
+        <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] bg-white rounded-full opacity-10 blur-[120px] animate-pulse" />
+        <div className="absolute -bottom-[20%] -right-[10%] w-[70%] h-[70%] bg-white rounded-full opacity-10 blur-[120px] animate-pulse" style={{ animationDelay: '2s', animationDuration: '8s' }} />
+        <div className="absolute top-[40%] right-[20%] w-[40%] h-[40%] bg-gray-500 rounded-full opacity-10 blur-[100px] animate-pulse" style={{ animationDelay: '1s', animationDuration: '7s' }} />
+        <div className="absolute bottom-[30%] left-[15%] w-[35%] h-[35%] bg-gray-400 rounded-full opacity-10 blur-[90px] animate-pulse" style={{ animationDelay: '3s', animationDuration: '9s' }} />
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center">
+      <div className="container mx-auto px-4 relative z-10 h-full flex items-center">
+        <div className="flex flex-col lg:flex-row items-center w-full">
           <div className="w-full lg:w-1/2 mb-10 lg:mb-0">
             <div className="relative">
               <span className="inline-block text-sm font-bold bg-white text-black px-4 py-1 rounded-full mb-4 animate-pulse-green">NEW COLLECTION</span>
@@ -36,7 +37,7 @@ const Hero = () => {
           </div>
           
           <div className="w-full lg:w-1/2 relative">
-            <div className="relative w-full h-[400px] md:h-[500px]">
+            <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-[280px] h-[280px] md:w-[350px] md:h-[350px] rounded-full bg-white/30 blur-xl animate-float" />
               <div className="absolute top-1/4 right-5 w-[120px] h-[120px] md:w-[180px] md:h-[180px] rounded-full bg-gray-400/20 blur-lg animate-float" style={{ animationDelay: '1s' }} />
               
@@ -61,7 +62,7 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden py-4">
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden py-4 bg-black bg-opacity-30 backdrop-blur-sm">
         <div className="relative flex whitespace-nowrap">
           <div className="flex animate-[marquee_25s_linear_infinite]">
             {Array(8).fill("ONE OF ONE").map((text, i) => (
