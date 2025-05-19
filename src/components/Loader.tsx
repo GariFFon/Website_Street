@@ -1,6 +1,59 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Sparkles } from "lucide-react";
+
+// Create an optimized background dots component using Canvas
+const DotsBackground = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  
+  // Draw dots only once on component mount
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    
+    // Set canvas dimensions to match the viewport
+    const updateCanvasSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw dots (only needs to happen once)
+      const dotCount = 80; // Reduced count for better performance
+      
+      for (let i = 0; i < dotCount; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const radius = Math.random() * 2 + 0.5; // Size between 0.5-2.5px (smaller for better performance)
+        const opacity = Math.random() * 0.3 + 0.1; // Opacity between 0.1-0.4
+        
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+        ctx.fill();
+      }
+    };
+    
+    // Initial draw
+    updateCanvasSize();
+    
+    // Handle resize (though this shouldn't happen often during loading)
+    window.addEventListener('resize', updateCanvasSize);
+    return () => window.removeEventListener('resize', updateCanvasSize);
+  }, []);
+  
+  return (
+    <canvas 
+      ref={canvasRef}
+      className="absolute inset-0 pointer-events-none z-0"
+      style={{ display: 'block' }}
+    />
+  );
+};
 
 const Loader = ({ onComplete }: { onComplete: () => void }) => {
   const [animationStep, setAnimationStep] = useState(0);
@@ -44,10 +97,13 @@ const Loader = ({ onComplete }: { onComplete: () => void }) => {
   return (
     <div
       className={cn(
-        "fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-b from-black via-gray-900 to-black transition-opacity duration-500",
+        "fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-b from-black via-gray-900 to-black transition-opacity duration-500 overflow-hidden",
         animationStep >= 3 ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
     >
+      {/* Static Dots Background */}
+      <DotsBackground />
+
       {/* Circular Progress Indicator */}
       <div
         className={cn(
