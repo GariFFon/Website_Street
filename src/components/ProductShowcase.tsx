@@ -31,25 +31,25 @@ const ProductShowcase = () => {
   const featuredProducts = [
     {
       name: "Jordan 1 Retro High",
-      price: "$220",
+      price: "₹16500",
       image: "/jordan-1-retro-high.jpg",
       isCustomizable: true
     },
     {
       name: "Essentials Hoodie",
-      price: "$120",
+      price: "₹9000",
       image: "/essential-hoodie.jpg",
       isCustomizable: true
     },
     {
       name: "Nike Dunk Low",
-      price: "$180",
+      price: "₹13500",
       image: "/nike-dunk-low.jpg",
       isCustomizable: true
     },
     {
       name: "Modkicks Original Tee",
-      price: "$65",
+      price: "₹4900",
       image: "/modkicks-original-tee.jpg",
       isCustomizable: true
     }
@@ -135,7 +135,7 @@ const ProductShowcase = () => {
                       id: `product-${index}`,
                       name: product.name,
                       price: typeof product.price === 'string' 
-                        ? parseFloat(product.price.replace('$', '')) 
+                        ? parseFloat(product.price.replace('₹', '')) 
                         : 0,
                       image: product.image
                     })}

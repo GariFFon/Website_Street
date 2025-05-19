@@ -153,7 +153,7 @@ const CartSidebar = () => {
                 <div className="mt-auto pt-4 border-t">
                   <div className="flex justify-between mb-2 text-sm text-gray-500">
                     <span>Subtotal</span>
-                    <span>${totalPrice.toFixed(2)}</span>
+                    <span>₹{totalPrice.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between mb-2 text-sm text-gray-500">
                     <span>Shipping</span>
@@ -161,7 +161,7 @@ const CartSidebar = () => {
                   </div>
                   <div className="flex justify-between mb-4 font-medium">
                     <span>Total</span>
-                    <span>${totalPrice.toFixed(2)}</span>
+                    <span>₹{totalPrice.toFixed(2)}</span>
                   </div>
                 </div>
                 
@@ -232,7 +232,7 @@ const CartSidebar = () => {
               <div className="border-t mt-6 pt-4">
                 <div className="flex justify-between mb-1">
                   <span className="text-sm">Items ({totalItems})</span>
-                  <span className="text-sm font-medium">${totalPrice.toFixed(2)}</span>
+                  <span className="text-sm font-medium">₹{totalPrice.toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -293,7 +293,7 @@ const CartSidebar = () => {
               <div className="border-t mt-6 pt-4">
                 <div className="flex justify-between mb-4 font-medium">
                   <span>Total</span>
-                  <span>${totalPrice.toFixed(2)}</span>
+                  <span>₹{totalPrice.toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -375,7 +375,7 @@ const CartItemRow: React.FC<CartItemRowProps> = ({ item, onRemove, onUpdateQuant
           </button>
         </div>
         
-        <span className="text-gray-500 mt-1">${price.toFixed(2)}</span>
+        <span className="text-gray-500 mt-1">₹{price.toFixed(2)}</span>
         
         <div className="flex justify-between items-center mt-2">
           <div className="flex items-center border rounded">
@@ -400,7 +400,7 @@ const CartItemRow: React.FC<CartItemRowProps> = ({ item, onRemove, onUpdateQuant
             </button>
           </div>
           
-          <span className="font-medium">${totalPrice.toFixed(2)}</span>
+          <span className="font-medium">₹{totalPrice.toFixed(2)}</span>
         </div>
       </div>
     </li>
