@@ -1,11 +1,11 @@
 
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import CustomizationPortal from '../components/CustomizationPortal';
-import ProductShowcase from '../components/ProductShowcase';
-import Gallery from '../components/Gallery';
-import Blog from '../components/Blog';
+import Hero from '../components/home/Hero';
+import CustomizationPortal from '@/components/home/CustomizationPortal';
+import ProductShowcase from '../components/home/ProductShowcase';
+import Gallery from '../components/home/Gallery';
+import Blog from '../components/home/Blog';
 import Footer from '../components/Footer';
 
 const Index = () => {
@@ -15,15 +15,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
-      <main>
-        <Hero />
-        <ProductShowcase />
-        <CustomizationPortal />
-        <Gallery />
-        <Blog />
-      </main>
-      <Footer />
+      <Hero />
+      <ProductShowcase />
+      <CustomizationPortal />
+      <Gallery />
+      <Blog />
     </div>
   );
 };
