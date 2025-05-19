@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import Loader from "./components/Loader";
 import BackToTop from "./components/BackToTop";
 import CartSidebar from "./components/CartSidebar";
+import ScrollManager from "./components/ScrollManager";
 import { CartProvider } from "./lib/cart-context";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => {
             <Loader onComplete={() => setIsLoading(false)} />
           ) : (
             <BrowserRouter>
+              <ScrollManager />
               <Routes>
                 <Route path="/" element={<Index />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

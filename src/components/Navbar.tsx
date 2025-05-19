@@ -17,6 +17,23 @@ const Navbar = () => {
     { name: 'Gallery', href: '#gallery' },
     { name: 'Blog', href: '#blog' },
   ];
+  
+  // Handle smooth scrolling when clicking on nav links
+  const handleNavLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.substring(1); // Remove the # character
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      // Close menu on mobile if it's open
+      if (isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+      
+      // Scroll to the element smoothly
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     let lastScrollTop = 0;
@@ -85,6 +102,7 @@ const Navbar = () => {
                   ? "text-black hover:text-gray-600" 
                   : "text-white hover:text-gray-300"
               )}
+              onClick={(e) => handleNavLinkClick(e, link.href)}
             >
               {link.name}
             </a>
@@ -144,7 +162,7 @@ const Navbar = () => {
                 key={link.name} 
                 href={link.href} 
                 className="font-medium text-black hover:text-gray-600 transition-colors py-2 border-b border-gray-100"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => handleNavLinkClick(e, link.href)}
               >
                 {link.name}
               </a>

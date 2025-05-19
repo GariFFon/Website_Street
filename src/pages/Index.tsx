@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import CustomizationPortal from '../components/CustomizationPortal';
 import ProductShowcase from '../components/ProductShowcase';
 import Gallery from '../components/Gallery';
+import Blog from '../components/Blog';
 import Footer from '../components/Footer';
 
 const Index = () => {
@@ -20,6 +21,7 @@ const Index = () => {
         <ProductShowcase />
         <CustomizationPortal />
         <Gallery />
+        <Blog />
       </main>
       <Footer />
     </div>
