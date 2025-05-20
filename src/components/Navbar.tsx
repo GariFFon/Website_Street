@@ -16,6 +16,7 @@ const Navbar = () => {
     { name: 'Customize', href: '#customize' },
     { name: 'Gallery', href: '#gallery' },
     { name: 'Blog', href: '#blog' },
+    { name: 'FAQ', href: '#faq' },
   ];
   
   // Handle smooth scrolling when clicking on nav links

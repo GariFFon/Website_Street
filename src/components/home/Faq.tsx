@@ -79,7 +79,7 @@ const Faq: React.FC = () => {
 
   return (    <motion.section 
       className="py-16 bg-black/95 text-white" 
-      id="faqs"
+      id="faq"
     >
       <div className="container mx-auto px-4">
        
