@@ -1,8 +1,33 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../Button';
 
 const Hero = () => {
+  // Add state to track window width for responsive carousel
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 0
+  );
+
+  // Update window width on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', handleResize);
+      handleResize(); // Set initial width
+    }
+
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', handleResize);
+      }
+    };
+  }, []);
+
+  // Determine how many items to show based on screen size
+  const carouselItemCount = windowWidth < 640 ? 4 : windowWidth < 1024 ? 6 : 8;
+
   return (
     <section className="min-h-screen flex flex-col justify-center relative overflow-hidden bg-black text-white">
       <div className="absolute inset-0 overflow-hidden">
@@ -62,18 +87,24 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="absolute bottom-0 left-0 right-0 overflow-hidden py-4 bg-black bg-opacity-30 backdrop-blur-sm">
+      <div className="absolute bottom-0 left-0 right-0 overflow-hidden py-2 sm:py-3 md:py-4 bg-black bg-opacity-30 backdrop-blur-sm">
         <div className="relative flex whitespace-nowrap">
           <div className="flex animate-[marquee_25s_linear_infinite]">
-            {Array(8).fill("ONE OF ONE").map((text, i) => (
-              <span key={i} className="font-display text-3xl md:text-4xl mx-8 opacity-20">
+            {Array(carouselItemCount).fill("ONE OF ONE").map((text, i) => (
+              <span 
+                key={i} 
+                className="font-display text-sm sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mx-3 sm:mx-4 md:mx-6 lg:mx-8 opacity-20"
+              >
                 {text}
               </span>
             ))}
           </div>
           <div className="absolute top-0 flex animate-[marquee_25s_linear_infinite] left-[100%]">
-            {Array(8).fill("ONE OF ONE").map((text, i) => (
-              <span key={i} className="font-display text-3xl md:text-4xl mx-8 opacity-20">
+            {Array(carouselItemCount).fill("ONE OF ONE").map((text, i) => (
+              <span 
+                key={i} 
+                className="font-display text-sm sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mx-3 sm:mx-4 md:mx-6 lg:mx-8 opacity-20"
+              >
                 {text}
               </span>
             ))}
