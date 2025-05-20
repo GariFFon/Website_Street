@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ShoppingCart, Search, User, Menu, X } from 'lucide-react';
 import { cn } from "@/lib/utils";
@@ -80,21 +79,28 @@ const Navbar = () => {
         isScrolled ? 'bg-white shadow-md py-2' : 'bg-black py-4'
       )}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        <div className="flex items-center relative">
-          <div className="absolute -left-10 top-1/2 -translate-y-1/2 w-8 h-auto">
-            <svg width="40" height="116" viewBox="0 0 137 398" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
+        <div className="flex items-center">
+          <div className="flex items-center">
+            <svg 
+              width="14" 
+              height="35" 
+              viewBox="0 0 137 398" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="mr-1"
+            >
               {/* Top zigzag shape */}
               <path d="M134 2L9 214h58l66-210z" fill={isScrolled ? "black" : "white"}/>
               {/* Bottom zigzag shape */}
               <path d="M4 397l125-218h-62l-63 218z" fill={isScrolled ? "black" : "white"}/>
             </svg>
+            <a href="/" className={cn("font-display text-xl sm:text-2xl tracking-tight", 
+              isScrolled ? "text-black" : "text-white"
+            )}>
+              MODKICKS
+            </a>
           </div>
-          <a href="/" className={cn("font-display text-3xl", 
-            isScrolled ? "text-black" : "text-white"
-          )}>
-            MODKICKS
-          </a>
         </div>
 
         {/* Desktop Nav */}
@@ -162,7 +168,21 @@ const Navbar = () => {
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg py-4 px-4 z-50">
-          <nav className="flex flex-col space-y-4">
+          <nav className="flex flex-col space-y-4 max-w-7xl mx-auto">
+            <div className="flex items-center pb-3 border-b border-gray-100">
+              <svg 
+                width="12" 
+                height="30" 
+                viewBox="0 0 137 398" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="mr-1"
+              >
+                <path d="M134 2L9 214h58l66-210z" fill="black"/>
+                <path d="M4 397l125-218h-62l-63 218z" fill="black"/>
+              </svg>
+              <span className="font-display text-xl text-black">MODKICKS</span>
+            </div>
             {navLinks.map((link) => (
               <a 
                 key={link.name} 
