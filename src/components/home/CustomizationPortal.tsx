@@ -297,10 +297,15 @@ export default function CustomizationPortal() {
               Express your style with a guaranteed 1-of-1 piece. Our artists are ready
               to bring your vision to life on your favorite sneakers or streetwear.
             </p>
-          </div>
-          <Button variant="outline" size="lg" className="whitespace-nowrap font-bold px-8 py-6 text-xl bg-black/20 hover:bg-black/30 text-white border-2 border-zinc-700">
-            BEGIN PROJECT
-          </Button>
+          </div>          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+          >
+            <Button variant="outline" size="lg" className="whitespace-nowrap font-bold px-8 py-6 text-xl bg-black/20 hover:bg-black/30 text-white border-2 border-zinc-700">
+              BEGIN PROJECT
+            </Button>
+          </motion.div>
         </div>
       </motion.div>
     </section>
