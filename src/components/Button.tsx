@@ -3,7 +3,7 @@ import React from 'react';
 import { cn } from "@/lib/utils";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'outline' | 'ghost' | 'green';
+  variant?: 'primary' | 'outline' | 'ghost' | 'black';
   size?: 'sm' | 'default' | 'lg' | 'icon';
   children: React.ReactNode;
   className?: string;
@@ -22,7 +22,7 @@ const Button = ({
     primary: "bg-black text-white hover:bg-black/90 shadow-md hover:shadow-lg transition-shadow",
     outline: "border-2 border-black text-black hover:bg-black hover:text-white hover:shadow-md transition-shadow",
     ghost: "text-black hover:bg-gray-100 hover:shadow-sm transition-shadow",
-    green: "bg-white text-black hover:bg-white/90 shadow-md hover:shadow-lg shadow-white/20 transition-shadow"
+    black: "bg-white text-black shadow-md hover:shadow-xl shadow-white/20 transition-shadow"
   };
   
   const sizeStyles = {

@@ -1,12 +1,10 @@
-
 import React, { useEffect } from 'react';
-import Navbar from '../components/Navbar';
 import Hero from '../components/home/Hero';
 import CustomizationPortal from '@/components/home/CustomizationPortal';
 import ProductShowcase from '../components/home/ProductShowcase';
 import Gallery from '../components/home/Gallery';
 import Blog from '../components/home/Blog';
-import Footer from '../components/Footer';
+import Faq from '@/components/home/Faq';
 
 const Index = () => {
   useEffect(() => {
@@ -20,6 +18,7 @@ const Index = () => {
       <CustomizationPortal />
       <Gallery />
       <Blog />
+      <Faq />
     </div>
   );
 };

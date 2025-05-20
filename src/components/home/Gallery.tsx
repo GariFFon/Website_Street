@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../Button';
+import { motion } from 'framer-motion';
 
 const Gallery = () => {
   const galleryItems = [
@@ -42,23 +43,49 @@ const Gallery = () => {
   ];
 
   return (
-    <section id="gallery" className="py-20 bg-black text-white">
+    <section id="gallery" className="py-20 bg-gradient-to-t from-black/95 to-black text-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="font-display text-6xl md:text-7xl mb-4">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.h2 
+            className="font-display text-6xl md:text-7xl mb-4"
+            initial={{ scale: 0.95 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
             ONE OF <span className="text-white">ONE</span> GALLERY
-          </h2>
-          <p className="text-lg max-w-2xl mx-auto text-gray-400">
+          </motion.h2>
+          <motion.p 
+            className="text-lg max-w-2xl mx-auto text-gray-400"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
             Explore our showcase of past custom projects. Each piece is unique and one-of-a-kind,
             never to be replicated again.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {galleryItems.map((item, index) => (
-            <div 
+            <motion.div 
               key={index} 
               className="group relative overflow-hidden rounded-2xl aspect-square cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-white/20 transition-all duration-500"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ 
+                duration: 0.5,
+                delay: index * 0.1,
+              }}
+              whileHover={{ scale: 1.02 }}
             >
               <img 
                 src={item.image} 
@@ -66,7 +93,13 @@ const Gallery = () => {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end p-6">
-                <div className="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                <motion.div 
+                  className="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 + 0.2 }}
+                >
                   <h3 className="font-bold text-xl mb-2 text-white group-hover:text-gray-300 transition-colors">
                     {item.title}
                   </h3>
@@ -84,17 +117,23 @@ const Gallery = () => {
                       </svg>
                     </button>
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        <div className="text-center">
+        <motion.div 
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-black">
             View Full Gallery
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
