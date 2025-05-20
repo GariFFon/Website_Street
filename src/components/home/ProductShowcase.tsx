@@ -14,6 +14,8 @@ import Autoplay from 'embla-carousel-autoplay';
 const ProductShowcase = () => {
   const { addToCart } = useCart();
   const [api, setApi] = React.useState<CarouselApi>();
+  const [likedProducts, setLikedProducts] = React.useState<Record<string, boolean>>({});
+  
   const plugin = React.useMemo(
     () =>
       Autoplay({
@@ -23,6 +25,13 @@ const ProductShowcase = () => {
       }),
     []
   );
+  
+  const handleLikeProduct = (productId: string) => {
+    setLikedProducts(prev => ({
+      ...prev,
+      [productId]: !prev[productId]
+    }));
+  };
 
   const categories = [
     {
@@ -161,8 +170,28 @@ const ProductShowcase = () => {
                     />                      
 
                     <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button className="bg-zinc-800 rounded-full w-8 h-8 flex items-center justify-center border border-zinc-700 hover:bg-zinc-700 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <button 
+                        className={`rounded-full w-8 h-8 flex items-center justify-center border transition-all duration-300 ${
+                          likedProducts[`product-${index}`] 
+                            ? "bg-red-500 border-red-600" 
+                            : "bg-zinc-800 border-zinc-700 hover:bg-zinc-700"
+                        }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleLikeProduct(`product-${index}`);
+                        }}
+                      >
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          width="16" 
+                          height="16" 
+                          viewBox="0 0 24 24" 
+                          fill={likedProducts[`product-${index}`] ? "white" : "none"} 
+                          stroke="white" 
+                          strokeWidth="2" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round"
+                        >
                           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"></path>
                         </svg>
                       </button>
