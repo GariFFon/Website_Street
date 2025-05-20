@@ -77,8 +77,8 @@ const CustomizationPortal = () => {
                 to bring your vision to life on your favorite sneakers or streetwear.
               </p>
             </div>
-            <Button variant="green" size="lg" className="whitespace-nowrap">
-              Begin Customization
+            <Button variant="green" size="lg" className="whitespace-nowrap font-bold px-8 py-6 text-xl">
+              BEGIN PROJECT
             </Button>
           </div>
         </div>
