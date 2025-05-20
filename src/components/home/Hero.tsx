@@ -4,7 +4,7 @@ import Button from '../Button';
 
 const Hero = () => {
   return (
-    <section className="h-screen flex flex-col justify-center relative overflow-hidden bg-black text-white">
+    <section className="min-h-screen flex flex-col justify-center relative overflow-hidden bg-black text-white">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] bg-white rounded-full opacity-10 blur-[120px] animate-pulse" />
         <div className="absolute -bottom-[20%] -right-[10%] w-[70%] h-[70%] bg-white rounded-full opacity-10 blur-[120px] animate-pulse" style={{ animationDelay: '2s', animationDuration: '8s' }} />
@@ -36,25 +36,25 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="w-full lg:w-1/2 relative">
+          <div className="w-full lg:w-1/2 relative hidden lg:block">
             <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-[280px] h-[280px] md:w-[350px] md:h-[350px] rounded-full bg-white/30 blur-xl animate-float" />
               <div className="absolute top-1/4 right-5 w-[120px] h-[120px] md:w-[180px] md:h-[180px] rounded-full bg-gray-400/20 blur-lg animate-float" style={{ animationDelay: '1s' }} />
               
-              <div className="absolute top-4 left-1/2 transform -translate-x-1/2 -rotate-12 z-10 transition-transform hover:scale-105 duration-300">
+              <div className="absolute top-4 left-1/2 transform -translate-x-3/4 -rotate-12 z-10 transition-transform hover:scale-105 duration-300">
                 <img 
                   src="/newdrop-sneakers.jpg" 
                   alt="Custom Jordan Sneaker" 
-                  className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] object-contain drop-shadow-2xl" 
+                  className="w-[300px] h-[300px] md:w-[450px] md:h-[450px] object-contain drop-shadow-2xl" 
                 />
                 <div className="absolute -top-4 -left-4 bg-white text-black text-xs px-3 py-1 rounded-full font-bold transform rotate-12">NEW DROP</div>
               </div>
               
-              <div className="absolute bottom-0 left-1/4 transform rotate-12 z-20 transition-transform hover:rotate-6 duration-300 hover:scale-105">
+              <div className="absolute bottom-0 left-1/2 transform rotate-12 z-20 transition-transform hover:rotate-6 duration-300 hover:scale-105">
                 <img 
                   src="/newdrop-sneakers2.jpg" 
                   alt="Custom Yeezy" 
-                  className="w-[200px] h-[200px] md:w-[250px] md:h-[250px] object-contain drop-shadow-xl" 
+                  className="w-[200px] h-[200px] md:w-[400px] md:h-[400px] object-contain drop-shadow-xl" 
                 />
               </div>
             </div>
