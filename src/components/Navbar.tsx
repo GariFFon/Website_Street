@@ -109,10 +109,11 @@ const Navbar = () => {
             <a 
               key={link.name} 
               href={link.href} 
-              className={cn("font-medium transition-colors", 
+              className={cn(
+                "font-medium transition-colors relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left px-2 py-1",
                 isScrolled 
-                  ? "text-black hover:text-gray-600" 
-                  : "text-white hover:text-gray-300"
+                  ? "text-black hover:text-gray-600 after:bg-black" 
+                  : "text-white hover:text-gray-300 after:bg-white"
               )}
               onClick={(e) => handleNavLinkClick(e, link.href)}
             >
@@ -187,7 +188,7 @@ const Navbar = () => {
               <a 
                 key={link.name} 
                 href={link.href} 
-                className="font-medium text-black hover:text-gray-600 transition-colors py-2 border-b border-gray-100"
+                className="font-medium text-black hover:text-gray-600 transition-colors py-2 border-b border-gray-100 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-black after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
                 onClick={(e) => handleNavLinkClick(e, link.href)}
               >
                 {link.name}
