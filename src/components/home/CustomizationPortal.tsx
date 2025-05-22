@@ -74,7 +74,7 @@ export default function CustomizationPortal() {
   };
 
   return (
-    <section id="experience" className="py-12 px-16 flex justify-center flex-col bg-black">
+    <section id="customize" className="py-12 px-16 flex justify-center flex-col bg-black">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
